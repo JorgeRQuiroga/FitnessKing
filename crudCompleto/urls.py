@@ -3,4 +3,6 @@ from crudCompleto.views import *
 
 urlpatterns = [
     path('', listar_productos, name="listarProductos"),
+    path('registrar/', registrar_producto, name="registrarProducto"),
+    path('productos/<int:pk>/editar/', editar_producto, name="editarProducto"),
 ]
