@@ -127,12 +127,22 @@ class Productos(models.Model):
     nombre = models.CharField(max_length=100)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.IntegerField()
+    eliminado = models.BooleanField(default=False)  # Borrado lógico
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'productos'
         ordering = ['id_producto']
         verbose_name = 'producto'
         verbose_name_plural = 'productos'
+        
     def __str__(self):
         return f"{self.nombre} - ${self.precio} (Stock: {self.stock})"
+    
+    def delete(self):
+        self.eliminado = True  # Marcar como eliminado
+        self.save()
+        
+    def restore(self):
+        self.eliminado = False  # Restaurar producto
+        self.save()

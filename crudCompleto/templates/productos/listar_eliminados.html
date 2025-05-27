@@ -11,7 +11,7 @@
         <h1>Listado de Productos</h1>
     </header>
     <a href="/registrar/">Agregar</a>
-    <td><a href="/restaurar/">Restaurar</a></td>
+    <td><a href="/listar/">Volver</a></td>
     <main>
     {% if productos %}
         <table>
@@ -29,7 +29,7 @@
                         <td>{{ e.precio }}</td>
                         <td>{{ e.stock }}</td>
                         <td><a href="/editar/{{e.id_producto}}">Editar</a></td>
-                        <td><a href="/eliminar/{{e.id_producto}}">Eliminar</a></td>
+                        <td><a href="/restaurar/{{e.id_producto}}">Restaurar</a></td>
                     </tr>
                     {% endfor %}
         {% else %}

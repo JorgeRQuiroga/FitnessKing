@@ -1,13 +1,16 @@
 from django.shortcuts import render
-from crudCompleto.models import Productos
+from crudCompleto.models import *
 from crudCompleto.forms import ProductForm
 from django.shortcuts import redirect, get_object_or_404
 # Create your views here.
 
 def listar_productos(request):
-    productos = Productos.objects.all()  # Obtiene todos los productos de la BD
+    productos = Productos.objects.filter(eliminado=False)  # Obtiene todos los productos de la BD
     return render(request, 'productos/listar.html', {'productos': productos})  # Pasar la variable
-
+def listar_productos_eliminados(request):
+	listar_productos_eliminados= Productos.objects.filter(eliminado=True)  # Obtiene los productos eliminados
+	return render(request, 'productos/listar_eliminados.html', {'productos': listar_productos_eliminados})  # Pasar la variable
+    
 def registrar_producto(request):
 	if request.method == 'POST':
 		form = ProductForm(request.POST)
@@ -27,3 +30,13 @@ def editar_producto(request, id):
 	else:
 		form = ProductForm(instance=producto)
 	return render(request, 'productos/editar.html', {'form': form})
+
+def eliminar_producto(request, id):
+	producto = get_object_or_404(Productos, pk=id)
+	producto.delete()  # Borrado lógico
+	return redirect('listarProductos')
+
+def restaurar_producto(request, id):
+	producto = get_object_or_404(Productos, pk=id)
+	producto.restore()  # Restaurar producto
+	return redirect('restaurarProducto')
