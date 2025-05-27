@@ -129,7 +129,7 @@ class Productos(models.Model):
     stock = models.IntegerField()
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'productos'
         ordering = ['id_producto']
         verbose_name = 'producto'

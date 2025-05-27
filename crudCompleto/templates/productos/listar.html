@@ -10,6 +10,7 @@
     <header>
         <h1>Listado de Productos</h1>
     </header>
+    <a href="/registrar/">Agregar</a>
     <main>
     {% if productos %}
         <table>
@@ -26,6 +27,8 @@
                         <td>{{ e.nombre }}</td>
                         <td>{{ e.precio }}</td>
                         <td>{{ e.stock }}</td>
+                        <td><a href="/editar/{{e.id_producto}}">Editar</a></td>
+                        <td><a href="/eliminar/{{p.id_producto}}">Eliminar</a></td>
                     </tr>
                     {% endfor %}
         {% else %}
