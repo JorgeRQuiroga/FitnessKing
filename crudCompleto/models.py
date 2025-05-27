@@ -120,13 +120,19 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
-class Producto(models.Model):
-    id = models.AutoField(primary_key=True)
+
+
+class Productos(models.Model):
+    id_producto = models.AutoField(db_column='ID_Producto', primary_key=True)
     nombre = models.CharField(max_length=100)
-    descripcion = models.TextField()
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.IntegerField()
 
     class Meta:
-        managed = False
-        db_table = 'producto'
+        managed = True
+        db_table = 'productos'
+        ordering = ['id_producto']
+        verbose_name = 'producto'
+        verbose_name_plural = 'productos'
+    def __str__(self):
+        return f"{self.nombre} - ${self.precio} (Stock: {self.stock})"

@@ -11,6 +11,7 @@
         <h1>Listado de Productos</h1>
     </header>
     <main>
+    {% if productos %}
         <table>
             <thead>
                 <tr>
@@ -20,14 +21,17 @@
                 </tr>
             </thead>
             <tbody>
-                {% for p in Productos %}
-                <tr>
-                    <td>{{ p.nombre }}</td>
-                    <td>{{ p.precio }}</td>
-                    <td>{{ p.stock }}</td>
-                </tr>
-                {% endfor %}
+                    {% for e in productos %}
+                    <tr>
+                        <td>{{ e.nombre }}</td>
+                        <td>{{ e.precio }}</td>
+                        <td>{{ e.stock }}</td>
+                    </tr>
+                    {% endfor %}
+        {% else %}
+            <p>No hay productos disponibles.</p>
             </tbody>
+        {% endif %}
         </table>
     </main>
     <footer>
