@@ -25,6 +25,8 @@
                     <td>{{ p.nombre }}</td>
                     <td>{{ p.precio }}</td>
                     <td>{{ p.stock }}</td>
+                    <td><a href="/editar/{{p.iidproducto}}">Editar</a></td>
+                    <td><a href="/eliminar/{{p.iidproducto}}">Eliminar</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
