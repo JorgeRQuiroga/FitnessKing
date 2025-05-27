@@ -17,13 +17,13 @@ def registrar_producto(request):
 	else:
 		form = ProductForm()
 	return render(request, 'productos/form.html', {'form': form})
-def editar_producto(request, pk):
-	producto = get_object_or_404(Productos, pk=pk)
+def editar_producto(request, id):
+	producto = get_object_or_404(Productos, pk=id)
 	if request.method == 'POST':
 		form = ProductForm(request.POST, instance=producto)
 		if form.is_valid():
 			form.save()
-			return redirect('listarproductos')
+			return redirect('listarProductos')
 	else:
 		form = ProductForm(instance=producto)
 	return render(request, 'productos/editar.html', {'form': form})
