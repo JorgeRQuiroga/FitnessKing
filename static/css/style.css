@@ -5,6 +5,7 @@
     text-decoration: none;
     color: rgb(255, 255, 255);
 }
+
 .nav_general:hover{
     color: black;
     font-weight: bold;
@@ -20,6 +21,7 @@
 }
 .cuerpo{
     background-color: black;
+    color: white;
 }
 .titulo{
     font-size: 1.5em;

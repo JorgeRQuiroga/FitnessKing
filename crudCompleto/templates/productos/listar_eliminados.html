@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Restaurar Productos</title>
 </head>
-<body>
+<body class="cuerpo">
     <header>
         <div class="barra_de_nav">
             <nav class="navbar navbar-expand-lg navbar-dark">
@@ -19,20 +19,19 @@
                 </div>
             </nav>
         </div>
-        <div class="container">
+        <div class="container text-white">
             <h1>Listado de Productos Eliminados</h1>
         </div>
     </header>
 
     <main class="container mt-3">
         <div class="mb-3">
-            <a href="/registrar/" class="btn btn-primary">Agregar</a>
             <a href="/listar/" class="btn btn-secondary">Volver</a>
         </div>
 
         {% if productos %}
             <div class="table-responsive">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped bg-dark text-white">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -48,7 +47,6 @@
                                 <td>{{ e.precio }}</td>
                                 <td>{{ e.stock }}</td>
                                 <td>
-                                    <a href="/editar/{{e.id_producto}}" class="btn btn-sm btn-warning">Editar</a>
                                     <a href="/restaurar/{{e.id_producto}}" class="btn btn-sm btn-success">Restaurar</a>
                                 </td>
                             </tr>
@@ -62,7 +60,7 @@
     </main>
 
     <footer class="bg-dark text-white text-center py-3">
-        <p>© 2023 Mi Sitio Web</p>
+        <p></p>
     </footer>
 </body>
 </html>
