@@ -12,8 +12,8 @@
     <header>
         <h1>Listado de Productos</h1>
     </header>
-    <a href="/registrar/">Agregar</a>
-    <td><a href="/listar/">Volver</a></td>
+    <a class="nav_tabla_crud" href="/registrar/">Agregar</a>
+    <a class="nav_tabla_crud" href="/listar/">Volver</a>
     <main>
     {% if productos %}
     <div class="table table-bordered" "table-responsive">
@@ -31,8 +31,8 @@
                         <td>{{ e.nombre }}</td>
                         <td>{{ e.precio }}</td>
                         <td>{{ e.stock }}</td>
-                        <td><a  href="/editar/{{e.id_producto}}">Editar</a></td>
-                        <td><a class="nav-link" href="/restaurar/{{e.id_producto}}">Restaurar</a></td>
+                        <td><a class="nav_tabla_crud" href="/editar/{{e.id_producto}}">Editar</a></td>
+                        <td><a class="nav_tabla_crud" href="/restaurar/{{e.id_producto}}">Restaurar</a></td>
                     </tr>
                     {% endfor %}
         {% else %}

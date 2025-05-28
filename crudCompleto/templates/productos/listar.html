@@ -9,12 +9,28 @@
     <title>Listar</title>
 </head>
 <body>
-    <header>
-        <h1>Listado de Productos</h1>
-    </header>
+<header>
+        <div class='barra_de_nav'>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" "inicio">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/index/"><img src="{% static 'imagenes/Logo.png' %}" alt="Logo" class="logo"></a>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active nav_general" aria-current="page" href="/index/">INICIO</a>
+                        <a class="nav-link nav_general" href="/listar/">PRODUCTOS</a>
+                    </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+</header>
+   
+<h1>Listado de Productos</h1>
+    
+
     <nav class="nav">
-    <a href="/registrar/">Agregar</a>
-    <a href="/restaurar/">Restaurar</a>
+    <a class="nav-link active nav_tabla_crud" href="/registrar/">Agregar</a>
+    <a class="nav-link nav_tabla_crud" href="/restaurar/">Restaurar</a>
     </nav>
     <main>
     {% if productos %}
@@ -34,8 +50,8 @@
                         <td>{{ e.nombre }}</td>
                         <td>{{ e.precio }}</td>
                         <td>{{ e.stock }}</td>
-                        <td ><a class="nav-link" href="/editar/{{e.id_producto}}">Editar</a></td>
-                        <td ><a class="nav-link" href="/eliminar/{{e.id_producto}}">Eliminar</a></td>
+                        <td ><a class="nav-link nav_tabla_crud" href="/editar/{{e.id_producto}}">Editar</a></td>
+                        <td ><a class="nav-link nav_tabla_crud" href="/eliminar/{{e.id_producto}}">Eliminar</a></td>
                     </tr>
                     {% endfor %}
         {% else %}

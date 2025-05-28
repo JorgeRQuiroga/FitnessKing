@@ -1,3 +1,39 @@
-a{
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.nav_general{
     text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.nav_general:hover{
+    color: black;
+    font-weight: bold;
+    font-size: large;
+}
+
+.logo{
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+}
+.cuerpo{
+    background-color: black;
+}
+.titulo{
+    font-size: 1.5em;
+    color: #333;
+    color: white;
+}
+.barra_de_nav{
+    background-color: #229b27;
+}
+.nav_tabla_crud{
+    color: black;
+}
+.nav_tabla_crud:hover{
+    color: black;
+    background-color: #229b27;
+    border: #000000;
 }
