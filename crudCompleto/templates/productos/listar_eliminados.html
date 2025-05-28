@@ -6,43 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Restaurar</title>
+    <title>Restaurar Productos</title>
 </head>
-<body >
+<body class="cuerpo">
     <header>
-        <h1>Listado de Productos</h1>
+        <div class="barra_de_nav">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="/index/">
+                        <img src="{% static 'imagenes/Logo.png' %}" alt="Logo" class="logo">
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <div class="container text-white">
+            <h1>Listado de Productos Eliminados</h1>
+        </div>
     </header>
-    <a href="/registrar/">Agregar</a>
-    <td><a href="/listar/">Volver</a></td>
-    <main>
-    {% if productos %}
-    <div class="table table-bordered" "table-responsive">
-        <table class="table" >
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Stock</th>
-                </tr>
-            </thead>
-            <tbody>
-                    {% for e in productos %}
-                    <tr>
-                        <td>{{ e.nombre }}</td>
-                        <td>{{ e.precio }}</td>
-                        <td>{{ e.stock }}</td>
-                        <td><a  href="/editar/{{e.id_producto}}">Editar</a></td>
-                        <td><a class="nav-link" href="/restaurar/{{e.id_producto}}">Restaurar</a></td>
-                    </tr>
-                    {% endfor %}
+
+    <main class="container mt-3">
+        <div class="mb-3">
+            <a href="/listar/" class="btn btn-secondary">Volver</a>
+        </div>
+
+        {% if productos %}
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped bg-dark text-white">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for e in productos %}
+                            <tr>
+                                <td>{{ e.nombre }}</td>
+                                <td>{{ e.precio }}</td>
+                                <td>{{ e.stock }}</td>
+                                <td>
+                                    <a href="/restaurar/{{e.id_producto}}" class="btn btn-sm btn-success">Restaurar</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         {% else %}
-            <p>No hay productos disponibles.</p>
-            </tbody>
+            <p class="alert alert-info">No hay productos eliminados.</p>
         {% endif %}
-        </table>
-    </div>
     </main>
-    <footer>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p></p>
     </footer>
 </body>
 </html>

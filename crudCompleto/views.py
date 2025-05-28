@@ -3,7 +3,8 @@ from crudCompleto.models import *
 from crudCompleto.forms import ProductForm
 from django.shortcuts import redirect, get_object_or_404
 # Create your views here.
-
+def inicio(request):
+    return render(request, 'productos/index.html')  # Renderiza la plantilla de inicio
 def listar_productos(request):
     productos = Productos.objects.filter(eliminado=False)  # Obtiene todos los productos de la BD
     return render(request, 'productos/listar.html', {'productos': productos})  # Pasar la variable
